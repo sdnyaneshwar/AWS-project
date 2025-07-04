@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AdminLogin.css';
-import { useNavigate, Link } from 'react-router-dom'; // ✅ Added Link
+import { useNavigate, Link } from 'react-router-dom';
 
 const AdminLogin = ({ onSwitch }) => {
   const [email, setEmail] = useState('');
@@ -16,12 +16,13 @@ const AdminLogin = ({ onSwitch }) => {
     setErrorMsg('');
 
     try {
-      const response = await axios.post('http://44.252.74.18/api/admin/login', {
+      const response = await axios.post('http://34.220.147.124:5000/api/admin/login', {
         email,
         password,
       });
 
       const userData = response.data;
+      console.log("userData: ", userData);
       if (userData.role !== 'admin') {
         setErrorMsg('Invalid email or password');
         setLoading(false);
@@ -40,64 +41,73 @@ const AdminLogin = ({ onSwitch }) => {
   };
 
   return (
-    <div className="login-wrapper">
-      <button className="switch-button" onClick={onSwitch}>
-        Client Login
-      </button>
+    <div className="admin-login-page">
+      {/* ✅ Navbar */}
+      <nav className="navbar">
+    <div className="navbar-left" onClick={() => navigate('/')}>
+      Vinsys
+    </div>
+  <div className="navbar-right">
+    <button className="switch-button" onClick={onSwitch}>
+      Client Login
+    </button>
+  </div>
+</nav>
 
-      <div className="login-left">
-        <img
-          src="https://niitfoundation.org/wp-content/uploads/2021/06/Conducting-Deeply-Engaging-Online-Sessions.png"
-          alt="Training Illustration"
-          className="login-illustration"
-        />
-      </div>
+      <div className="login-wrapper">
+        <button className="switch-button" onClick={onSwitch}>
+          Client Login
+        </button>
 
-      <div className="login-right">
-        <div className="login-card">
+        <div className="login-left">
           <img
-            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-            alt="VINSYS"
-            className="login-logo"
+            src="https://niitfoundation.org/wp-content/uploads/2021/06/Conducting-Deeply-Engaging-Online-Sessions.png"
+            alt="Training Illustration"
+            className="login-illustration"
           />
-          <h2>VINSYS Enquiry Manager</h2>
-          <p>Please login to manage training enquiries.</p>
+        </div>
 
-          <form onSubmit={handleLogin}>
-            <label>Email</label>
-            <input
-              type="email"
-              value={email}
-              placeholder="Enter your email"
-              onChange={(e) => setEmail(e.target.value)}
-              required
+        <div className="login-right">
+          <div className="login-card">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+              alt="VINSYS"
+              className="login-logo"
             />
+            <h2>VINSYS Enquiry Manager</h2>
+            <p>Please login to manage training enquiries.</p>
 
-            <label>Password</label>
-            <input
-              type="password"
-              value={password}
-              placeholder="Enter your password"
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <form onSubmit={handleLogin}>
+              <label>Email</label>
+              <input
+                type="email"
+                value={email}
+                placeholder="Enter your email"
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
 
-            <button type="submit" disabled={loading}>
-              {loading ? 'Logging in...' : 'Login'}
-            </button>
-          </form>
+              <label>Password</label>
+              <input
+                type="password"
+                value={password}
+                placeholder="Enter your password"
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
 
-          {errorMsg && <p style={{ color: 'red', marginTop: '10px' }}>{errorMsg}</p>}
+              <button type="submit" disabled={loading}>
+                {loading ? 'Logging in...' : 'Login'}
+              </button>
+            </form>
 
-          <div className="login-links">
-            <a href="#">Forgot password?</a>
-          </div>
+            {errorMsg && <p style={{ color: 'red', marginTop: '10px' }}>{errorMsg}</p>}
 
-          {/* ✅ Register link */}
-          <div className="register-link">
-            <p>
-              Don’t have an account? <Link to="/register">Register</Link>
-            </p>
+            <div className="register-link">
+              <p>
+                Don’t have an account? <Link to="/register">Register</Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>

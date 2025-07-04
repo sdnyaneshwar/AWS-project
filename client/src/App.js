@@ -6,13 +6,16 @@ import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import Home from './pages/Home';
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/" element={<Home/>} />
+        
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/query" element={<EnquiryForm />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/dashboard" element={<AdminDashboard />} />

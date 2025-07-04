@@ -42,7 +42,7 @@ function AdminLogin() {
 
     setLoading(true);
     try {
-      const res = await axios.post('http://44.252.74.18/api/login', form);
+      const res = await axios.post('http://34.220.147.124:5000/api/login', form);
       localStorage.setItem('token', res.data.token);
       alert('Login successful!');
     } catch (err) {

@@ -25,7 +25,7 @@ const RegisterPage = () => {
     setErrorMsg('');
 
     try {
-      const response = await axios.post('http://44.252.74.18/api/user/register', form);
+      const response = await axios.post('http://34.220.147.124:5000/api/user/register', form);
       alert('Registration successful!');
       navigate('/');
     } catch (error) {
@@ -37,52 +37,63 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="register-wrapper">
-      <div className="register-card">
-        <h2>🔐 Register</h2>
-        <form onSubmit={handleSubmit}>
-          <label>User Type</label>
-          <select name="role" value={form.role} onChange={handleChange}>
-            <option value="client">Client</option>
-            <option value="admin">Admin</option>
-          </select>
-
-          <label>Full Name</label>
-          <input
-            type="text"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            required
-            placeholder="Enter your name"
-          />
-
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            required
-            placeholder="Enter your email"
-          />
-
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={form.password}
-            onChange={handleChange}
-            required
-            placeholder="Create a password"
-          />
-
-          <button type="submit" disabled={loading}>
-            {loading ? 'Registering...' : 'Register'}
+    <div className="register-page">
+      <nav className="navbar">
+        <div className="navbar-left">Vinsys</div>
+        <div className="navbar-right">
+          <button className="home-button" onClick={() => navigate('/')}>
+            Home
           </button>
+        </div>
+      </nav>
 
-          {errorMsg && <p className="error">{errorMsg}</p>}
-        </form>
+      <div className="register-wrapper">
+        <div className="register-card">
+          <h2>Register</h2>
+          <form onSubmit={handleSubmit}>
+            <label>User Type</label>
+            <select name="role" value={form.role} onChange={handleChange}>
+              <option value="client">client</option>
+              <option value="admin">admin</option>
+            </select>
+
+            <label>Full Name</label>
+            <input
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              required
+              placeholder="Enter your name"
+            />
+
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              required
+              placeholder="Enter your email"
+            />
+
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={form.password}
+              onChange={handleChange}
+              required
+              placeholder="Create a password"
+            />
+
+            <button type="submit" disabled={loading}>
+              {loading ? 'Registering...' : 'Register'}
+            </button>
+
+            {errorMsg && <p className="error">{errorMsg}</p>}
+          </form>
+        </div>
       </div>
     </div>
   );

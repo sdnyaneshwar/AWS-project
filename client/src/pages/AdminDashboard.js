@@ -21,7 +21,7 @@ function AdminDashboard() {
 
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://44.252.74.18/api/enquiries');
+        const res = await axios.get('http://34.220.147.124:5000/api/enquiries');
         setEnquiries(res.data);
       } catch (err) {
         alert('Failed to fetch enquiries');

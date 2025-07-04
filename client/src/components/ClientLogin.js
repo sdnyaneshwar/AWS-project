@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import './ClientLogin.css';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom'; // ✅ Link added
+import { useNavigate, Link } from 'react-router-dom';
 
 const ClientLogin = ({ onSwitch }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const [errorMsg, setErrorMsg] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -17,12 +16,13 @@ const ClientLogin = ({ onSwitch }) => {
     setErrorMsg('');
 
     try {
-      const response = await axios.post('http://44.252.74.18/api/client/login', {
+      const response = await axios.post('http://34.220.147.124:5000/api/client/login', {
         email,
         password,
       });
 
       const userData = response.data;
+      console.log("userData: ", userData);
 
       if (userData.role !== 'client') {
         setErrorMsg('Invalid email or password');
@@ -42,64 +42,71 @@ const ClientLogin = ({ onSwitch }) => {
   };
 
   return (
-    <div className="client-login-wrapper">
-      <button className="switch-button" onClick={onSwitch}>
-        Admin Login
-      </button>
+    <div className="client-login-page">
+      {/* ✅ Navbar */}
+      <nav className="navbar">
+    <div className="navbar-left" onClick={() => navigate('/')}>
+      Vinsys
+    </div>
+  <div className="navbar-right">
+    <button className="switch-button" onClick={onSwitch}>
+      Admin Login
+    </button>
+  </div>
+</nav>
 
-      <div className="client-left">
-        <img
-          src="https://static.vecteezy.com/system/resources/previews/046/540/706/non_2x/data-protection-concept-shield-on-computer-data-management-and-protect-data-vector.jpg"
-          alt="Client Illustration"
-          className="client-illustration"
-        />
-      </div>
+      <div className="client-login-wrapper">
+        
 
-      <div className="client-right">
-        <div className="client-card">
+        <div className="client-left">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRilQYfWqyoZ-o5jtuBuHYJh2Dj43Gh0i5NUt3z8RO69cUw_eXgfSuTivmGl72Dn0gnehM&usqp=CAU"
-            alt="Vinsys Client"
-            className="client-logo"
+            src="https://static.vecteezy.com/system/resources/previews/046/540/706/non_2x/data-protection-concept-shield-on-computer-data-management-and-protect-data-vector.jpg"
+            alt="Client Illustration"
+            className="client-illustration"
           />
-          <h2>Client Login</h2>
-          <p>Access your training enquiry dashboard</p>
+        </div>
 
-          <form onSubmit={handleLogin}>
-            <label>Email</label>
-            <input
-              type="email"
-              value={email}
-              placeholder="Enter your email"
-              onChange={(e) => setEmail(e.target.value)}
-              required
+        <div className="client-right">
+          <div className="client-card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRilQYfWqyoZ-o5jtuBuHYJh2Dj43Gh0i5NUt3z8RO69cUw_eXgfSuTivmGl72Dn0gnehM&usqp=CAU"
+              alt="Vinsys Client"
+              className="client-logo"
             />
+            <h2>Client Login</h2>
+            <p>Access your training enquiry dashboard</p>
 
-            <label>Password</label>
-            <input
-              type="password"
-              value={password}
-              placeholder="Enter your password"
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <form onSubmit={handleLogin}>
+              <label>Email</label>
+              <input
+                type="email"
+                value={email}
+                placeholder="Enter your email"
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
 
-            <button type="submit" disabled={loading}>
-              {loading ? 'Logging in...' : 'Login'}
-            </button>
-          </form>
+              <label>Password</label>
+              <input
+                type="password"
+                value={password}
+                placeholder="Enter your password"
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
 
-          {errorMsg && <p style={{ color: 'red', marginTop: '10px' }}>{errorMsg}</p>}
+              <button type="submit" disabled={loading}>
+                {loading ? 'Logging in...' : 'Login'}
+              </button>
+            </form>
 
-          <div className="client-links">
-            <a href="#">Forgot password?</a>
-          </div>
+            {errorMsg && <p style={{ color: 'red', marginTop: '10px' }}>{errorMsg}</p>}
 
-          {/* ✅ Register link */}
-          <div className="register-link">
-            <p>
-              Don’t have an account? <Link to="/register">Register</Link>
-            </p>
+            <div className="register-link">
+              <p>
+                Don’t have an account? <Link to="/register">Register</Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>

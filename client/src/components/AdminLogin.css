@@ -74,7 +74,7 @@ form input {
 form button {
   width: 100%;
   padding: 12px;
-  background-color: #24936e;
+  background-color: #fb923c;
   border: none;
   color: white;
   font-weight: bold;
@@ -84,7 +84,7 @@ form button {
 }
 
 form button:hover {
-  background-color: #1f7a5b;
+  background-color: #fb923c;
 }
 
 .login-links {
@@ -93,7 +93,7 @@ form button:hover {
 
 .login-links a {
   display: block;
-  color: #24936e;
+  color: #fb923c;
   margin-top: 5px;
   text-decoration: none;
   font-size: 0.9rem;
@@ -104,7 +104,7 @@ form button:hover {
   position: absolute;
   top: 20px;
   right: 20px;
-  background-color: #24936e;
+  background-color: #fb923c;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -115,7 +115,7 @@ form button:hover {
 }
 
 .switch-button:hover {
-  background-color: #1e7a5a;
+  background-color: #fb923c;
 }
 
 .register-link {
@@ -125,7 +125,7 @@ form button:hover {
 }
 
 .register-link a {
-  color: #007bff;
+  color: #fb923c;
   text-decoration: none;
   font-weight: 500;
 }
@@ -134,3 +134,30 @@ form button:hover {
   text-decoration: underline;
 }
 
+/* ✅ Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fb923c;
+  color: white;
+  padding: 15px 30px;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.home-button {
+  background-color: white;
+  color: #fb923c;
+  border: none;
+  padding: 8px 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.home-button:hover {
+  background-color: #ffe4cc;
+}

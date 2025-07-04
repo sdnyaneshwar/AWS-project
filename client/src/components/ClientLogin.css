@@ -131,3 +131,57 @@ form button:hover {
 .register-link a:hover {
   text-decoration: underline;
 }
+
+
+/* ✅ Navbar styles */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #197278;
+  color: white;
+  padding: 15px 30px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.navbar-left {
+  font-size: 20px;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: space-between;
+  
+  gap: 15px;
+}
+
+.home-button,
+.switch-button {
+  background-color: white;
+  color: #197278;
+  border: none;
+  padding: 8px 10px;
+  
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.home-button:hover,
+.switch-button:hover {
+  background-color: #d3f0ee;
+}
+
+.client-login-wrapper {
+  margin-top: 80px;
+  display: flex;
+  height: calc(100vh - 80px); /* subtract navbar height */
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+}

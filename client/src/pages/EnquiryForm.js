@@ -28,7 +28,7 @@ function EnquiryForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://44.252.74.18/api/enquiry', form); // ✅ Update port to match backend
+      await axios.post('http://34.220.147.124:5000/api/enquiry', form); // ✅ Update port to match backend
       setSubmitted(true);
       setForm({
         firstName: '',

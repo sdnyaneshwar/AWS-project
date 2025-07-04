@@ -44,6 +44,7 @@
   background-color: #ffffff;
 }
 
+
 /* FAQ Section */
 .faq-section {
   flex: 1;
@@ -60,7 +61,7 @@
 .faq-item {
   margin-bottom: 20px;
   background-color: #f0f4ff;
-  border-left: 4px solid #2a45c2;
+  border-left: 4px solid #fb923c;
   padding: 16px 20px;
   border-radius: 8px;
   transition: transform 0.2s ease;
@@ -73,7 +74,7 @@
 .faq-item h4 {
   font-size: 18px;
   margin-bottom: 6px;
-  color: #0a1a45;
+  color: #fb923c;
 }
 
 .faq-item p {
@@ -96,7 +97,7 @@
 
 .trigger-btn {
   padding: 10px 24px;
-  background-color: #2a45c2;
+  background-color: #fb923c;
   color: white;
   border: none;
   border-radius: 6px;
@@ -107,7 +108,7 @@
 }
 
 .trigger-btn:hover {
-  background-color: #1a2f91;
+  background-color: #fb923c;
 }
 
 /* Form Section */
@@ -147,7 +148,7 @@ textarea {
 .submit-btn {
   width: 100%;
   padding: 12px;
-  background-color: #2a45c2;
+  background-color: #fb923c;
   color: white;
   font-weight: bold;
   border: none;
@@ -158,12 +159,12 @@ textarea {
 }
 
 .submit-btn:hover {
-  background-color: #1a2f91;
+  background-color: #fb923c;
 }
 
 /* Success Message */
 .success-message {
-  color: green;
+  color: orange;
   text-align: center;
   margin-top: 12px;
   font-weight: bold;
@@ -183,7 +184,7 @@ textarea {
 
 .top-bar {
   width: 100%;
-  background-color: #f1f1f1;
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 12px 30px;
   box-sizing: border-box;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -202,13 +203,13 @@ textarea {
 
 .welcome-user {
   font-weight: 500;
-  color: #333;
+  color: #ffffff;
 }
 
 .logout-btn {
   padding: 6px 14px;
   padding-right: 12px;
-  background-color: #c0392b;
+  background-color: #fb923c;
   color: white;
   border: none;
   border-radius: 4px;
@@ -218,5 +219,5 @@ textarea {
 }
 
 .logout-btn:hover {
-  background-color: #a93226;
+  background-color: #fb923c;
 }
